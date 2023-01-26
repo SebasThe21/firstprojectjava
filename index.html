@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function getComputerChoice(){
+            const items=["Paper","Scissors","Rock"];
+            let random= 0 + Math.floor(Math.random()*3);
+            return items[random];
+        }
+        let computerscore=0;
+       let playerscore=0;
+       
+        function playround(computerOpcion, playerSelection){
+            console.log(computerOpcion);
+             if(playerSelection==`Rock` && computerOpcion==`Paper`){
+                 computerscore++;
+                return `Papel vence a piedra,computador gana`
+             }else if(playerSelection==`Paper` && computerOpcion==`Rock`){
+                 playerscore++;
+                return `Papel vence a piedra,jugador gana`
+             }else if(playerSelection==`Scissors` && computerOpcion==`Paper`){
+                 playerscore++;
+                return `Tijera vence a papel,jugador gana`
+             }else if(playerSelection==`Paper` && computerOpcion==`Scissors`){
+                 computerscore++;
+                return `Papel vence a tijera, computador gana`
+             }else if(playerSelection=="Rock" && computerOpcion=="Scissors"){
+                 playerscore++;
+                return `Piedra vence a tijera, jugador gana`
+             }else if(playerSelection==`Scissors` && computerOpcion==`Rock`){
+                 computerscore++;
+                return `Tijera vence a piedra, computadora gana`
+             }else{
+                return "ninguno gana";
+             }
+            
+            
+            
+        }
+
+        function game(){
+         for(i=0; i <4;i++){
+           let  playerSelection=prompt("Scissors,Rock or paper?")
+            
+
+           let computerOpcion=getComputerChoice();
+           
+           console.log(playround(computerOpcion, playerSelection))
+         }
+
+         if(playerscore > computerscore){
+            console.log(`Player win with ${playerscore}`)
+         }
+         else if(computerscore==playerscore ){
+            console.log("Empate")
+         }
+         else{console.log(`Consola gana con ${computerscore} puntos`)}
+        
+        }
+
+        game();
+         
+   
+        
+       
+      
+        
+      
+        
+
+        
+    </script>
+</body>
+</html>
